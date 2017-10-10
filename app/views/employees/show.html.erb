@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @employee.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @employee.address %>
+</p>
+
+<p>
+  <strong>Employent date:</strong>
+  <%= @employee.employent_date %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= @employee.employee_type.name %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @employee.employee_type.salary %>
+</p>
+
+<p>
+  <strong>Attendances:</strong>
+  <ul>
+  <% @employee.attendances.each do |attendance| %>
+      <li>
+        <p>
+          <strong>Shop: </strong><%= attendance.shop.name %>
+        </p>
+        <p>
+          <strong>Day: </strong><%= attendance.created_at %>
+        </p>
+      </li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>
